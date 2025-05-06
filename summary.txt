@@ -1,0 +1,12 @@
+    My project is a drone flight data logger. Essentially, I have three different sensors from Sparkfun connected to a Raspberry Pi Zero 2W (to be mounted on a drone), 
+of which measure acceleration, altitude, and GPS coordinates in real-time. The Raspberry Pi Zero then sends this data using a LoRa radio module to another Raspberry Pi (4B) on the ground. 
+The second Raspberry Pi uses Java and a library called jSerialComm to read this incoming data. Once it receives the data, my program uses three different algorithms to analyze it. 
+The first algorithm is linear search, which helps me quickly check if the drone flies too high or too low by comparing each altitude reading to a certain threshold value. 
+The second algorithm is bubble sort, which sorts the altitude readings and finds the median altitude, which is helpful when determining the most-flown altitude trend the pilot hovers at 
+while performing their tasks. The third algorithm I use is quick sort, and it sorts all the GPS data points, which helps me reconstruct the live path the drone has traveled clearly on a map.
+    To store all this sensor data, I use three data structures. I use an array to store recent altitude readings because arrays are simple to work with for a fixed number of values. 
+I use a queue (like waiting in line) to keep recent acceleration values, so I can calculate averages. And finally, I use a linked list to store all the GPS points because it allows 
+me to easily add new location points as the drone moves around. 
+    At the end, I display all this information in a JavaFX graphical user interface. It will show me the drone's 
+live sensor data and draw a path on a small map in real time, so I can visually see exactly where the drone has been and what's happening during the flight. This setup fulfills 
+the project requirements because it shows how I'm using three different algorithms and data structures to solve a practical problem.
